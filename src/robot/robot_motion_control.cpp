@@ -109,11 +109,13 @@ void updateOdometry() {
     currPhiL = encoders[2].getPosition();
     currPhiR = -encoders[3].getPosition();
     
+    // Update wheel angles and angular change
     double dPhiL = currPhiL - prevPhiL;
     double dPhiR = currPhiR - prevPhiR;
     prevPhiL = currPhiL;
     prevPhiR = currPhiR;
 
+    // Calculate update in robot's base coordinates
     float dtheta = r / (2 * b) * (dPhiR - dPhiL);
     float dx = r / 2.0 * (cos(robotMessage.theta) * dPhiR + cos(robotMessage.theta) * dPhiL);
     float dy = r / 2.0 * (sin(robotMessage.theta) * dPhiR + sin(robotMessage.theta) * dPhiL);
