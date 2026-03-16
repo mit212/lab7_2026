@@ -1,7 +1,7 @@
 # Lab 7: Mobile Robot II
 
 2.12/2.120 Intro to Robotics  
-Spring 2025[^1]
+Spring 2026[^1]
 
 <details>
   <summary>Table of Contents</summary>
