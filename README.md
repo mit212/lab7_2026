@@ -133,4 +133,5 @@ Install 2 motors on the front of the robot, and replace all 4 existing wheels wi
   Version 3 - 2019: Jerry Ng  
   Version 4 - 2023: Joseph Ntaimo, Kentaro Barhydt, Ravi Tejwani, Kamal Youcef-Toumi and Harrison Chin  
   Version 5 - 2024: Jinger Chong, Josh Sohn  
-  Version 6 - 2025: Roberto Bolli Jr., Kaleb Blake
+  Version 6 - 2025: Roberto Bolli Jr., Kaleb Blake  
+  Version 7 - 2026: Stephan Stansfield
