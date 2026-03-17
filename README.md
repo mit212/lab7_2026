@@ -48,7 +48,7 @@ Open `robot_motion_control.cpp` and read through `updateOdometry()`. Make sure t
 
 ### 1.3 U-Turn
 
-Make sure your PlatformIO environment is set to be `env:robot` and upload the code to the microcontroller on your mobile robot. Once the code has finished uploading, unplug the robot from your computer, set it on the ground, power it on, and press `RST`. Your robot should now autonomously follow a U-Turn!
+Make sure your PlatformIO environment is set to be `env:robot` and upload the code to the microcontroller on your mobile robot. Once the code has finished uploading, unplug the robot from your computer, set it on the ground, power it on, and press `RST`. Your robot should now autonomously follow a (counter-clockwise) U-Turn!
 
 Your U-Turn will probably not be perfect! While odometry is straightforward to implement, it suffers from problems such as position drift due to wheel slippage. [IMU data](#X1-imu) (or some combination of IMU and odometry) will likely be more reliable. 
 
@@ -72,11 +72,13 @@ _Estimated time: 20 minutes_
 
 In order to establish wireless communication, we first have to make sure that both microcontrollers know each other's MAC addresses.
 
-Run `lib/Wireless/examples/get_mac.cpp` (you will have to temporarily move the existing files inside the `src/robot/` folder somewhere else and replace them with `get_mac.cpp`). Open `lib/Wireless/wireless.h` and change `robotAddr` to the MAC address being printed to the Serial monitor. If you don't see anything printing, make sure you have selected the right microcontroller port (it must be connected to your laptop via USB). Switch back to "Auto" when you're done with the Serial monitor.
+Run `lib/Wireless/examples/get_mac.cpp` (you will have to temporarily move the existing files inside the `src/robot/` folder somewhere else, like the `src/temp` folder, and replace them with `get_mac.cpp`). Open `lib/Wireless/wireless.h` and change `robotAddr` to the MAC address being printed to the Serial monitor.
+
+If you don't see anything printing, make sure you have selected the right microcontroller port (it must be connected to your laptop via USB). Switch back to "Auto" when you're done with the Serial monitor.
 
 ### 2.2 Get Joystick Controller MAC Address
 
-Connect to the microcontroller on your controller and change your PlatformIO environment to be `env:controller`.
+Connect to the microcontroller on your joystick controller board and change your PlatformIO environment to be `env:controller`.
 
 <details> <summary> <i> Forget how to change environments? </i> </summary>
 
@@ -89,7 +91,7 @@ Run `lib/Wireless/examples/get_mac.cpp` (you will have to temporarily move the e
 
 ### 2.3 Validate Joystick Controller
 
-Run `src/test_controller/controller_test.cpp`. You should see joystick readings being printed to your Serial monitor.
+Run `src/test_controller/controller_test.cpp`. You should see joystick readings in the range [-1.0, 1.0] being printed to your Serial monitor.
 
 ### 2.4 Run Joystick Controller
 
@@ -99,7 +101,7 @@ Upload `controller_main.cpp` and `controller_wireless.cpp` to the microcontrolle
 
 In `robot_motion_control.cpp`, comment out `#define CIRCLE` and uncomment `#define JOYSTICK`. This will change the `followTrajectory()` function to follow a joystick instead of a circle. 
 
-Set your PlatformIO environment back to `env:robot`. Upload `robot_main.cpp`, `robot_drive.cpp`, `robot_motion_control.cpp`, and `robot_wireless.cpp` to the microcontroller on your mobile robot. Make sure the joystick microcontroller is receiving power from a laptop. At this point, you should be able to drive your mobile robot around with your joystick!
+Set your PlatformIO environment back to `env:robot`. Upload `robot_main.cpp`, `robot_drive.cpp`, `robot_motion_control.cpp`, and `robot_wireless.cpp` to the microcontroller on your mobile robot. Make sure the joystick microcontroller is receiving power from a laptop or USB-C power adapter. At this point, you should be able to drive your mobile robot around with your joystick!
 
 | :white_check_mark: CHECKOFF 2 :white_check_mark:   |
 |:---------------------------------------------------|
