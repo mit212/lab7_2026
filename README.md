@@ -117,13 +117,13 @@ In `robot_motion_control.cpp`, comment out `#define JOYSTICK` and uncomment `#de
 |:---------------------------------------------------|
 | Show your mobile robot in action to a TA or LA. |
 
-## X Optional Extensions
+## X Optional Extension (eXtra Credit)
 
 ### X.1 IMU 
 
 Install an IMU on the circuit board (if not already present), and use the IMU yaw angle to increase the accuracy of `robotMessage.theta` in the `updateOdometry()` function of `robot_motion_control.cpp`. For example, you could make `theta` completely dependent on the IMU readings. This will probably be very useful for your final project, especially if you use dead reckoning, which is extremely sensitive to deviations in `theta`.
 
-### X.2 Mecanum Wheels
+### Potential extension for final project: Mecanum Wheels
 
 Install 2 motors on the front of the robot, and replace all 4 existing wheels with mecanum wheels! Mecanum wheels allow the robot to move in any direction. However, the odometry and controller will be slightly different.
 
